@@ -1,6 +1,6 @@
-
+<h1> Add New Dojo! </h1>
 <form action='/dojos' method='post'>
-	<input type="hidden" name="authenticity_token" value="VxLCoqvap2IdbFioGuFfTadt+I5jVDPKxwg+6/1wPZIXUHTPyQzAq6Bat6MXlSF9HYrxQN3aXSZWZqJPMf2HOw==" />
+    <input name="authenticity_token" value="<%=form_authenticity_token %>" type="hidden">
 	Branch:
 	<input type='text' name='dojo[branch]'><br>
 	Street:
@@ -13,3 +13,11 @@
 </form>
 
 <a href='/'>Go Back</a>
+
+
+
+<% if flash[:errors] %>
+	<% flash[:errors].each do |mistakes| %>
+ 		<p style="color:red"><%= mistakes %></p>
+ 	<% end %>
+<% end %>

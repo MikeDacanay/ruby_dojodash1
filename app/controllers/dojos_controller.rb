@@ -9,7 +9,12 @@ class DojosController < ApplicationController
   def create
   	@dojo = Dojo.new(dojo_params)
   	@dojo.save
-  	redirect_to "/"
+  	if @dojo.errors.full_messages.length > 0
+  		flash[:errors] = @dojo.errors.full_messages
+  		redirect_to "/dojos/new"
+  	else
+  		redirect_to '/'
+  	end
   end
 
   private
