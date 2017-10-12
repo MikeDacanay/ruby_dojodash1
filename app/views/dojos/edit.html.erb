@@ -1,0 +1,15 @@
+<h1> Editing <%= @doj.branch %> </h1>
+<form action='/dojos/<%= @doj.id%>' method='post'>
+    <input name="authenticity_token" value="<%=form_authenticity_token %>" type="hidden">	
+	Branch:
+	<input type='text' value='<%=@doj.branch%>' name='dojo[branch]'><br>
+	Street:
+	<input type='text' value='<%=@doj.street%>' name='dojo[street]'><br>
+	City:
+	<input type='text' value='<%=@doj.city%>' name='dojo[city]'><br>
+	State:
+	<input type='text' value='<%=@doj.state%>' name='dojo[state]'><br>
+	<input type='submit' value='update'>	
+</form>
+<br>
+<a href='/'> Home</a> | <a href='/dojos/<%= @doj.id %>'>Show</a>
