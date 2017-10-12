@@ -1,0 +1,12 @@
+<h1> New Student </h1>
+<form action='/dojos/<%= flash[:dojo_id] %>/students' method='post'>
+    <input name="authenticity_token" value="<%=form_authenticity_token %>" type="hidden">
+	First Name:
+	<input type='text' name='student[first_name]'><br>
+	Last Name:
+	<input type='text' name='student[last_name]'><br>
+	Email Address:
+	<input type='text' name='student[email]'><br>
+	<input type='hidden' name='student[dojo_id]' value=<%= flash[:dojo_id] %>>
+	<input type='submit' value='submit'>
+</form>

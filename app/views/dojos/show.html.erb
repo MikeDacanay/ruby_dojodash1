@@ -1,5 +1,28 @@
-<h1><%= @doj.branch %></h1>
+<h1><%= @doj.branch %></h1>  
+<a href='/dojos/<%= @doj.id %>/edit'> Edit </a>
 <h4> Address: <%= @doj.street%></h4>
 <h4> City: <%= @doj.city%> </h4>
 <h4> State: <%= @doj.state%> </h4>
-<a href='/'>Home</a> | <a href='/dojos/<%= @doj.id %>/edit'> Edit </a>
+
+<table>
+	<tr>
+		<td>First Name</td>
+		<td>Last Name</td>
+		<td>Email</td>
+		<td>Actions</td>
+	</tr>
+	<% @students.each do |student| %>
+		<tr>
+			<td><%= student[:first_name] %></td>
+			<td><%= student[:last_name] %> </td>
+			<td><%= student[:email] %> </td>
+			<td>
+				Show |
+				Edit |
+				Delete
+			</td>
+		</tr>
+	<% end %>
+</table>
+
+<a href='/'>Home</a> | <a href='/dojos/<%= @doj.id%>/students/new'> Add Student </a>

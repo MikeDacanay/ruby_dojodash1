@@ -19,6 +19,7 @@ class DojosController < ApplicationController
 
   def show
     @doj = Dojo.find(params[:id])
+    @students = Student.where(dojo: params[:id])
   end
 
   def edit
