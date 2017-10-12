@@ -11,9 +11,16 @@ class StudentsController < ApplicationController
   end
 
   def show
+  	@ninja = Student.find(params[:student_id])
+  	@all_students = Student.where(dojo: params[:dojo_id])
   end
 
   def edit
+  	@ninja = Student.find(params[:student_id])
+  end
+
+  def update
+ 	render json: params
   end
 
   private

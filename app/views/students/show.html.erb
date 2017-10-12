@@ -1,2 +1,17 @@
-<h1>Students#show</h1>
-<p>Find me in app/views/students/show.html.erb</p>
+<h1><%= @ninja.first_name%> <%=@ninja.last_name%></h1>
+<h2><%= @ninja.email %> </h2>
+<table>
+	<tr>
+		<td><h3>First Name</h3></td>
+		<td>Last Name</td>
+		<td>Email</td>
+	</tr>
+	<% @all_students.each do |student| %>
+		<tr>
+			<td><%=student.first_name%></td>
+			<td><%=student.last_name%></td>
+			<td><%=student.email%></td>
+		</tr>
+	<% end %>
+</table>
+<a href='/'>Home</a> | <a href="/dojos/<%=@ninja.dojo.id%>/students/<%= @ninja.id %>/edit">Edit</a>
