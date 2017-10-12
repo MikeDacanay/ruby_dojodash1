@@ -1,11 +1,12 @@
 <h1> Editing <%= @ninja.first_name%> <%= @ninja.last_name%></h1>
 <form action='/dojos/<%= params[:dojo_id]%>/students/<%=params[:student_id]%>' method='post'>
+    <input name="authenticity_token" value="<%=form_authenticity_token %>" type="hidden">
 	First name:
 	<input type='text' name='first' value='<%= @ninja.first_name%>'><br>
 	Last name:
 	<input type='text' name='last' value='<%= @ninja.last_name%>'><br>
 	Email:
-	<input type='text' name='first' value='<%= @ninja.email%>'><br>
+	<input type='text' name='email' value='<%= @ninja.email%>'><br>
 	<input type='hidden' name='dojo' value='<%= params[:dojo_id]%>'>
 	<input type='submit' value='update'>
 </form>

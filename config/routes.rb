@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   delete 'dojos(/:id)' => 'dojos#destroy'
 
+  delete 'dojos(/:id)/students(/:student_id)' => 'students#destroy'
+
   root 'dojos#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

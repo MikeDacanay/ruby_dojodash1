@@ -18,8 +18,8 @@
 			<td><%= student[:email] %> </td>
 			<td>
 				<a href= '/dojos/<%= @doj.id %>/students/<%= student.id%>'>Show </a> |
-				Edit |
-				Delete
+				<a href= '/dojos/<%= @doj.id %>/students/<%= student.id%>/edit'>Edit</a> |
+				<a href='/dojos/<%= @doj.id%>/students/<%=student.id%>' data-method='delete'> Delete </a>			
 			</td>
 		</tr>
 	<% end %>

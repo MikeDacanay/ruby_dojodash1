@@ -20,9 +20,20 @@ class StudentsController < ApplicationController
   end
 
   def update
- 	render json: params
+  	temp = Student.find(params[:student_id])
+  	temp[:first_name] = params[:first]
+  	temp[:last_name] = params[:first]
+  	temp[:email] = params[:email]
+  	temp.save
+  	redirect_to "/dojos/#{params[:id]}"
   end
 
+  def destroy
+  	temp = Student.find(params[:student_id])
+  	dojo_num = temp.dojo.id
+  	temp.destroy
+  	redirect_to "/dojos/#{dojo_num}"
+  end
   private
   	def student_params
   		params.require(:student).permit(:first_name, :last_name, :email, :dojo_id)
